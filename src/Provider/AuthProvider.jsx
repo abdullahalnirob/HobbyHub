@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       unsubscribe();
     };
-  }, []);
+  },[]);
 
   const signOutUser = () => {
     signOut(auth);
