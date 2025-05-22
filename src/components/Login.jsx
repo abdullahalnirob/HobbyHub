@@ -4,6 +4,7 @@ import {
   sendPasswordResetEmail,
   signInWithPopup,
 } from "firebase/auth";
+import { FiLoader } from "react-icons/fi";
 import { auth } from "../firebase/firebase.config";
 import { use, useRef, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -12,6 +13,7 @@ const Login = () => {
   const emailRef = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const { SignIn, setUser } = use(AuthContext);
   const navigate = useNavigate();
 
@@ -21,6 +23,9 @@ const Login = () => {
       toast.error("Please enter both email and password.");
       return;
     }
+
+    setLoading(true);
+
     SignIn(email, password)
       .then(() => {
         toast.success("User Login Successfully!");
@@ -28,6 +33,9 @@ const Login = () => {
       })
       .catch(() => {
         toast.error("User Login Failed!");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -40,7 +48,7 @@ const Login = () => {
         navigate("/");
       })
       .catch((err) => {
-         toast.error("Google Sign-in failed.");
+        toast.error("Google Sign-in failed.");
       });
   };
   const handleForgetPassword = () => {
@@ -136,9 +144,10 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className="w-full py-2 rounded-full px-3 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700  focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-300 cursor-pointer"
+              disabled={loading}
+              className="w-full py-2 rounded-full px-3 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-300 cursor-pointer flex justify-center items-center"
             >
-              Sign in
+              {loading ? <FiLoader className="animate-spin" /> : "Sign in"}
             </button>
           </div>
 

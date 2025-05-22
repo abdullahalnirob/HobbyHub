@@ -7,6 +7,9 @@ import CreateGroup from "../components/CreateGroup";
 import PrivateRoute from "./PrivateRoute";
 import AllGroups from "../components/AllGroups";
 import Group from "../components/Group";
+import MyGroup from "../components/MyGroup";
+import UpdateGroup from "../components/UpdateGroup";
+import NotFound from "../components/NotFound";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -37,6 +40,14 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/my-groups",
+        element: (
+          <PrivateRoute>
+            <MyGroup />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/group/:id",
         loader: () => fetch(`http://localhost:3000/api/allGroups`),
         element: (
@@ -45,7 +56,20 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "/update-group/:id",
+        loader: () => fetch(`http://localhost:3000/api/allGroups`),
+        element: (
+          <PrivateRoute>
+            <UpdateGroup />
+          </PrivateRoute>
+        ),
+      },
     ],
+  },
+  {
+    path:"*",
+    element:<NotFound/>
   },
   {
     path: "/login",

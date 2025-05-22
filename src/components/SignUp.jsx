@@ -7,7 +7,7 @@ import { auth } from "../firebase/firebase.config";
 import { FiLoader } from "react-icons/fi";
 
 const SignUp = () => {
-  const { createUser, setUser,updateUser  } = use(AuthContext);
+  const { createUser, setUser, updateUser } = use(AuthContext);
   const navigate = useNavigate();
 
   const [name, setName] = useState("");

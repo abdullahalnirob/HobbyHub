@@ -29,11 +29,11 @@ const AllGroups = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4 md:px-10 my-5 md:my-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4 md:px-20 my-5 md:my-10">
       {groups.map((group) => (
         <div
           key={group._id}
-          className="bg-gray-50 rounded-lg shadow-sm overflow-hidden"
+          className="bg-gray-50 ring-1 ring-gray-300 rounded-lg shadow-sm overflow-hidden"
         >
           <img
             src={group.imageUrl}
@@ -57,7 +57,7 @@ const AllGroups = () => {
             </div>
             <div className="flex items-center text-gray-600 text-sm">
               <FiCalendar className="mr-1" />
-              <span>Start: {group.startDate}</span>
+              <span>End: {group.endDate}</span>
             </div>
             <div className="flex items-center text-gray-600 text-sm mb-3">
               <FaCrown className="mr-1" />
