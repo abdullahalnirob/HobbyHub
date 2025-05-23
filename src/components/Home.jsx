@@ -9,6 +9,7 @@ import {
   FiHeart,
   FiBookOpen,
 } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   // Sample data for featured groups
@@ -145,7 +146,7 @@ const Home = () => {
 
         <div className="text-center mt-10">
           <button className="px-5 cursor-pointer py-2.5 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 shadow-sm">
-            Explore All Groups
+            <Link to="/groups">Explore All Groups</Link>
           </button>
         </div>
       </section>
