@@ -12,7 +12,6 @@ import {
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  // Sample data for featured groups
   const [featuredGroups, setFeaturedGroups] = useState([
     {
       id: 1,
@@ -70,7 +69,6 @@ const Home = () => {
     },
   ]);
 
-  // Stats section data
   const stats = [
     {
       label: "Active Groups",
@@ -96,12 +94,9 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Slider Banner Section */}
       <section className="w-full">
         <Slider />
       </section>
-
-      {/* Featured Groups Section */}
       <section className="max-w-7xl bg-gray-100 mx-auto  py-16 px-5 md:px-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900">Featured Groups</h2>
@@ -151,7 +146,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Community Stats Section */}
       <section className="bg-gray-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -179,8 +173,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* How It Works Section */}
       <section className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900">How It Works</h2>
