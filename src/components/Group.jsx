@@ -29,17 +29,14 @@ const Group = () => {
   const isExpired = new Date(endDate) < currentDate;
   const navigate = useNavigate();
   const handleJoin = () => {
-    toast.success(
-      `You've successfully joined "${groupName}"!.`,
-      {
-        duration: 5000,
-        style: {
-          // background: "#4f46e5",
-          // color: "#fff",
-          fontWeight: "500",
-        },
-      }
-    );
+    toast.success(`You've successfully joined "${groupName}"!.`, {
+      duration: 5000,
+      style: {
+        // background: "#4f46e5",
+        // color: "#fff",
+        fontWeight: "500",
+      },
+    });
     setTimeout(() => {
       navigate("/groups");
     }, 2000);
@@ -48,7 +45,6 @@ const Group = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
       <div className="bg-white p-8 ring-1 ring-gray-200 rounded-xl shadow-lg grid md:grid-cols-2 gap-6 items-start">
-        {/* Image */}
         <div className="w-full h-64 md:h-full">
           <img
             src={imageUrl}
@@ -56,8 +52,6 @@ const Group = () => {
             className="w-full h-full object-cover rounded-lg"
           />
         </div>
-
-        {/* Text + Button */}
         <div className="flex flex-col justify-between h-full">
           <div>
             <h1 className="text-3xl font-bold text-gray-800 mb-1">
