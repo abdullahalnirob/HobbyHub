@@ -6,11 +6,10 @@ import {
 } from "firebase/auth";
 import { FiLoader } from "react-icons/fi";
 import { auth } from "../firebase/firebase.config";
-import { use, useRef, useState } from "react";
+import { use, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-hot-toast";
 const Login = () => {
-  const emailRef = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -49,18 +48,6 @@ const Login = () => {
       })
       .catch((err) => {
         toast.error("Google Sign-in failed.");
-      });
-  };
-  const handleForgetPassword = () => {
-    const email = emailRef.current.value;
-    sendPasswordResetEmail(auth, email)
-      .then(() => {
-        toast.success(
-          "A password reset email is send. Please Check your email!"
-        );
-      })
-      .catch(() => {
-        toast.error("Email field empy or Something error!");
       });
   };
   return (
@@ -117,16 +104,7 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-end text-xs">
-            <div>
-              <a
-                onClick={handleForgetPassword}
-                className="text-blue-600 hover:text-blue-500 cursor-pointer"
-              >
-                Forgot password?
-              </a>
-            </div>
-          </div>
+          <div className="flex items-center justify-end text-xs"></div>
           <div>
             <button
               type="button"

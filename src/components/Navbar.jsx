@@ -4,7 +4,8 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-hot-toast";
-
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, signOutUser } = useContext(AuthContext);
@@ -46,7 +47,7 @@ const Navbar = () => {
           <div>
             <Link
               to="/"
-              className="text-2xl sm:text-3xl font-extrabold text-gray-800 hover:text-blue-600 transition-colors"
+              className="text-2xl sm:text-3xl font-extrabold text-gray-800 transition-colors"
             >
               HobbyHub
             </Link>
@@ -81,10 +82,14 @@ const Navbar = () => {
 
           <div className="flex items-center space-x-4">
             {user && (
-              <div
-                className="tooltip tooltip-bottom"
+              <a
+                className="my-anchor-element-class"
                 data-tip={user.displayName}
               >
+                <Tooltip
+                  anchorSelect=".my-anchor-element-class"
+                  content={user.displayName}
+                />
                 <div className="ring-1 ring-blue-500 rounded-full">
                   <img
                     src={user?.photoURL}
@@ -92,7 +97,7 @@ const Navbar = () => {
                     alt={user?.displayName}
                   />
                 </div>
-              </div>
+              </a>
             )}
             <button
               onClick={handleSignOut}

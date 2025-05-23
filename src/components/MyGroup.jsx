@@ -109,7 +109,6 @@ const MyGroup = () => {
                         <FiEdit className="text-base" /> Update
                       </button>
                     </Link>
-                    {/* Open the modal using document.getElementById('ID').showModal() method */}
                     <dialog id="my_modal_1" className="modal">
                       <div className="modal-box">
                         <h3 className="font-bold text-lg text-red-600">

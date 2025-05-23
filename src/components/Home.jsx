@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Slider from "./Slider";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+
 import {
   FiUsers,
   FiCalendar,
@@ -131,9 +133,11 @@ const Home = () => {
                   <FiCalendar className="mr-1" />
                   <span>Next: {group.nextMeeting}</span>
                 </div>
-                <button className="w-full flex items-center justify-center px-3 py-1.5 border border-transparent rounded-full cursor-pointer duration-150 shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700">
-                  Join Group <FiArrowRight className="ml-2 text-sm" />
-                </button>
+                <Link to="/groups">
+                  <button className="w-full flex items-center justify-center px-3 py-1.5 border border-transparent rounded-full cursor-pointer duration-150 shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700">
+                    Join Group <FiArrowRight className="ml-2 text-sm" />
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
@@ -156,20 +160,27 @@ const Home = () => {
               Join thousands of people connecting every day
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="bg-white shadow bg-opacity-10 rounded-lg p-8 text-center"
-              >
-                <div className="text-blue-300 flex justify-center mb-4">
-                  {stat.icon}
+          <div className="grid grid-cols-1 md:grid-cols-[40%_60%]">
+            <DotLottieReact
+            className=""
+              src="https://lottie.host/f478bb38-3dda-4ac6-a678-f0826108697b/3RzyixFJDi.lottie"
+              loop
+              autoplay
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="bg-white shadow bg-opacity-10 rounded-lg p-8 text-center"
+                >
+                  <div className="text-blue-300 flex justify-center mb-4">
+                    {stat.icon}
+                  </div>
+                  <p className="text-4xl font-bold  mb-2">{stat.value}</p>
+                  <p className="text-xl text-blue-400">{stat.label}</p>
                 </div>
-                <p className="text-4xl font-bold  mb-2">{stat.value}</p>
-                <p className="text-xl text-blue-400">{stat.label}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
