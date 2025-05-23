@@ -12,7 +12,7 @@ const MyGroup = () => {
   const currentUserName = user?.displayName;
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/allGroups")
+    fetch("https://hobby-hub-server-nine.vercel.app/api/allGroups")
       .then((res) => res.json())
       .then((data) => {
         setGroups(data);
@@ -33,7 +33,7 @@ const MyGroup = () => {
     setTimeout(() => {
       navigate("/groups");
     }, 1000);
-    fetch(`http://localhost:3000/api/groups/${id}`, {
+    fetch(`https://hobby-hub-server-nine.vercel.app/api/groups/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

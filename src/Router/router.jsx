@@ -49,7 +49,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/group/:id",
-        loader: () => fetch(`http://localhost:3000/api/allGroups`),
+        loader: () =>
+          fetch(`https://hobby-hub-server-nine.vercel.app/api/allGroups`),
         element: (
           <PrivateRoute>
             <Group />
@@ -58,7 +59,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/update-group/:id",
-        loader: () => fetch(`http://localhost:3000/api/allGroups`),
+        loader: () =>
+          fetch(`https://hobby-hub-server-nine.vercel.app/allGroups`),
         element: (
           <PrivateRoute>
             <UpdateGroup />
@@ -68,8 +70,8 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path:"*",
-    element:<NotFound/>
+    path: "*",
+    element: <NotFound />,
   },
   {
     path: "/login",

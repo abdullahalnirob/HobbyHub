@@ -75,7 +75,6 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 name="email"
-                ref={emailRef}
                 type="email"
                 autoComplete="email"
                 required

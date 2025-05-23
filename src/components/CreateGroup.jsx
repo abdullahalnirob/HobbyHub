@@ -38,7 +38,7 @@ const CreateGroup = () => {
       imageUrl,
       email, displayName
     };
-    fetch("http://localhost:3000/api/create", {
+    fetch("https://hobby-hub-server-nine.vercel.app/api/create", {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

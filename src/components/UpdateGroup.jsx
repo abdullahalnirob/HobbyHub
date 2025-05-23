@@ -48,7 +48,7 @@ const UpdateGroup = () => {
     };
 
     console.log("Updated group data:", updatedGroup);
-    fetch(`http://localhost:3000/api/groups/${id}`, {
+    fetch(`https://hobby-hub-server-nine.vercel.app/api/groups/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
