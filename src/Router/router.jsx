@@ -60,7 +60,7 @@ export const router = createBrowserRouter([
       {
         path: "/update-group/:id",
         loader: () =>
-          fetch(`https://hobby-hub-server-nine.vercel.app/allGroups`),
+          fetch(`https://hobby-hub-server-nine.vercel.app/api/allGroups`),
         element: (
           <PrivateRoute>
             <UpdateGroup />
