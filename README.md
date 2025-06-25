@@ -46,7 +46,7 @@
 
 ### 🔧 Backend
 
-| Category         | Tools Used            |
+| Category         | Tools Used             |
 |------------------|------------------------|
 | Runtime          | Node.js                |
 | Framework        | Express.js 5           |
