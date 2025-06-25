@@ -25,6 +25,8 @@
 
 ## 🛠️ Tech Stack
 
+### 🧩 Frontend
+
 | Category       | Tools Used                                     |
 |----------------|------------------------------------------------|
 | Framework      | React 19                                       |
@@ -39,6 +41,18 @@
 | Tooltip        | React Tooltip                                  |
 | Lottie Support | Lottie React, DotLottie React                  |
 | Counting Anim. | React CountUp                                  |
+
+---
+
+### 🔧 Backend
+
+| Category         | Tools Used            |
+|------------------|------------------------|
+| Runtime          | Node.js                |
+| Framework        | Express.js 5           |
+| Database         | MongoDB 6              |
+| Middleware       | CORS, dotenv           |
+| Hosting (Opt.)   | Vercel                 |
 
 ---
 
