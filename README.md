@@ -13,6 +13,7 @@
 ## 🚀 Key Features
 
 - 🔍 Discover local hobby groups by interest and location
+- 🧑‍💻 Create an account to access personalized features
 - ✍️ Create your own group with name, description, and category
 - 🙋 Join other users' groups instantly with one click
 - 🛠️ Update or edit the groups you’ve created
