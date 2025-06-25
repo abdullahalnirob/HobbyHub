@@ -12,13 +12,15 @@
 
 ## 🚀 Key Features
 
-- 🔍 Discover local hobby groups
+- 🔍 Discover local hobby groups by interest and location
 - ✍️ Create your own group with name, description, and category
-- 🙋 Join and leave groups in one click
+- 🙋 Join other users' groups instantly with one click
+- 🛠️ Update or edit the groups you’ve created
+- ⏳ Prevent joining a group after its join deadline has passed
 - 💬 Explore hobby details with smooth UI animations
 - 🔒 Secure authentication using Firebase
-- 🎨 Beautiful UI with Tailwind CSS and DaisyUI
-- 📲 Fully responsive on mobile, tablet, and desktop
+- 🎨 Beautiful and clean UI with Tailwind CSS and DaisyUI
+- 📲 Fully responsive on mobile, tablet, and desktop devices
 
 
 ---
