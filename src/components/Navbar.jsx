@@ -121,7 +121,7 @@ const Navbar = () => {
               user ? (
                 <button
                   onClick={handleSignOut}
-                  className="px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300"
+                  className="px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer"
                 >
                   Sign Out
                 </button>
