@@ -12,6 +12,8 @@ import {
   FiBookOpen,
 } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import Faq from "./Faq";
+import NewsletterSignup from "./NewsletterSignup";
 
 const Home = () => {
   const [featuredGroups, setFeaturedGroups] = useState([
@@ -107,7 +109,7 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-5">
           {featuredGroups.map((group) => (
             <div
               key={group.id}
@@ -135,7 +137,7 @@ const Home = () => {
                 </div>
                 <Link to="/groups">
                   <button className="w-full flex items-center justify-center px-3 py-1.5 border border-transparent rounded-full cursor-pointer duration-150 shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700">
-                    Join Group <FiArrowRight className="ml-2 text-sm" />
+                    See more <FiArrowRight className="ml-2 text-sm" />
                   </button>
                 </Link>
               </div>
@@ -238,6 +240,8 @@ const Home = () => {
           </button>
         </div>
       </section>
+      <Faq/>
+      <NewsletterSignup/>
     </div>
   );
 };

@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { FiMapPin, FiUsers, FiCalendar, FiUser } from "react-icons/fi";
 import { toast } from "react-hot-toast";
 import { Fade } from "react-awesome-reveal";
+import { AuthContext } from "../Provider/AuthProvider";
 const Group = () => {
   const data = useLoaderData();
   const { id } = useParams();
   const group = data.find((group) => group._id === id);
+  const { user } = useContext(AuthContext);
 
   if (!group) {
     return (
@@ -29,6 +31,11 @@ const Group = () => {
   const isExpired = new Date(endDate) < currentDate;
   const navigate = useNavigate();
   const handleJoin = () => {
+    if (!user) {
+      toast.error("Please log in to join the group.");
+      navigate("/login");
+      return;
+    }
     toast.success(`You've successfully joined "${groupName}"!.`, {
       duration: 5000,
       style: {
@@ -96,11 +103,10 @@ const Group = () => {
 
             <div className="mt-6">
               <button
-                className={`w-full font-semibold py-2 px-4 rounded-full transition duration-200 ${
-                  isExpired
+                className={`w-full font-semibold py-2 px-4 rounded-full transition duration-200 ${isExpired
                     ? "bg-gray-300 text-gray-600 cursor-not-allowed"
                     : "bg-blue-600 text-white hover:bg-blue-700 cursor-pointer"
-                }`}
+                  }`}
                 onClick={!isExpired ? handleJoin : null}
                 disabled={isExpired}
               >

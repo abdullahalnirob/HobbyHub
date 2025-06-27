@@ -8,8 +8,10 @@ import PrivateRoute from "./PrivateRoute";
 import AllGroups from "../components/AllGroups";
 import Group from "../components/Group";
 import MyGroup from "../components/MyGroup";
+import DashMyGroup from "../Dashboard/DashMyGroup";
 import UpdateGroup from "../components/UpdateGroup";
 import NotFound from "../components/NotFound";
+import Dashboard from "../Dashboard/Dashboard";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -18,9 +20,7 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: (
-          <PrivateRoute>
-            <Root />
-          </PrivateRoute>
+          <Root />
         ),
       },
       {
@@ -34,9 +34,7 @@ export const router = createBrowserRouter([
       {
         path: "/groups",
         element: (
-          <PrivateRoute>
-            <AllGroups />
-          </PrivateRoute>
+          <AllGroups />
         ),
       },
       {
@@ -51,11 +49,7 @@ export const router = createBrowserRouter([
         path: "/group/:id",
         loader: () =>
           fetch(`https://hobby-hub-server-nine.vercel.app/api/allGroups`),
-        element: (
-          <PrivateRoute>
-            <Group />
-          </PrivateRoute>
-        ),
+        element: <Group />
       },
       {
         path: "/update-group/:id",
@@ -67,6 +61,14 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
+      },
     ],
   },
   {
@@ -74,11 +76,52 @@ export const router = createBrowserRouter([
     element: <NotFound />,
   },
   {
-    path: "/login",
-    element: <Login />,
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [{
+      path: "/dashboard",
+      element: (
+        <PrivateRoute>
+          <MyGroup />
+        </PrivateRoute>
+      ),
+    }
+      ,
+    {
+      path: "/dashboard/my-groups",
+      element: (
+        <PrivateRoute>
+          <DashMyGroup />
+        </PrivateRoute>
+      ),
+    },
+    {
+      path: "/dashboard/create-groups",
+      element: (
+        <PrivateRoute>
+          <CreateGroup />
+        </PrivateRoute>
+      ),
+    },
+    {
+      path: "/dashboard/all-groups",
+      element: (
+        <PrivateRoute>
+          <AllGroups />
+        </PrivateRoute>
+      ),
+    },
+    {
+      path: "/dashboard/update-group/:id",
+      loader: () =>
+        fetch(`https://hobby-hub-server-nine.vercel.app/api/allGroups`),
+      element: (
+        <PrivateRoute>
+          <UpdateGroup />
+        </PrivateRoute>
+      ),
+    },
+    ]
   },
-  {
-    path: "/signup",
-    element: <SignUp />,
-  },
+
 ]);

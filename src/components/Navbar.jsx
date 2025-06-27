@@ -66,18 +66,36 @@ const Navbar = () => {
             >
               All Groups
             </Link>
-            <Link
-              to="/my-groups"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
-            >
-              My Groups
-            </Link>
-            <Link
-              to="/create"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
-            >
-              Create a group
-            </Link>
+            {
+              user && (
+                <Link
+                  to="/my-groups"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  My Groups
+                </Link>
+              )
+            }
+            {
+              user && (
+                <Link
+                  to="/create"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  Create a group
+                </Link>
+              )
+            }
+            {
+              user && (
+                <Link
+                  to="/dashboard"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  Dashboard
+                </Link>
+              )
+            }
           </div>
 
           <div className="flex items-center space-x-4">
@@ -99,12 +117,23 @@ const Navbar = () => {
                 </div>
               </a>
             )}
-            <button
-              onClick={handleSignOut}
-              className="px-6 py-1.5 cursor-pointer bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full hover:from-blue-700 hover:to-indigo-700 transition-all duration-300"
-            >
-              Sign Out
-            </button>
+            {
+              user ? (
+                <button
+                  onClick={handleSignOut}
+                  className="px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300"
+                >
+                  Sign Out
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  className="px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300"
+                >
+                  Sign In
+                </Link>
+              )
+            }
           </div>
         </div>
 
