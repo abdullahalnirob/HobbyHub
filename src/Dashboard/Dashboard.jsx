@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FiHome, FiUsers, FiMenu, FiX } from "react-icons/fi";
-import { PlusIcon, ChevronLeft } from "lucide-react";
+import { PlusIcon, ChevronLeft, LayoutDashboardIcon } from "lucide-react";
 
 const navItems = [
   { name: "Home", to: "/", icon: <FiHome /> },
+  { name: "Dashboard", to: "/dashboard", icon: <LayoutDashboardIcon /> },
   { name: "My Groups", to: "/dashboard/my-groups", icon: <FiUsers /> },
   { name: "All Groups", to: "/dashboard/all-groups", icon: <FiUsers /> },
   { name: "Create Groups", to: "/dashboard/create-groups", icon: <PlusIcon /> },
@@ -51,9 +52,8 @@ const Dashboard = () => {
               className="hidden lg:flex items-center justify-center w-8 h-8 rounded-lg bg-slate-700 hover:bg-slate-600 transition-colors"
             >
               <ChevronLeft
-                className={`w-4 h-4 transition-transform ${
-                  isCollapsed ? "rotate-180" : ""
-                }`}
+                className={`w-4 h-4 transition-transform ${isCollapsed ? "rotate-180" : ""
+                  }`}
               />
             </button>
 
@@ -71,10 +71,9 @@ const Dashboard = () => {
               key={item.name}
               to={item.to}
               className={({ isActive }) =>
-                `group flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium transition-all duration-200 relative overflow-hidden ${
-                  isActive
-                    ? "bg-blue-600 text-white shadow-lg"
-                    : "hover:bg-slate-700/50 text-slate-300 hover:text-white"
+                `group flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium transition-all duration-200 relative overflow-hidden ${isActive
+                  ? "bg-blue-600 text-white shadow-lg"
+                  : "hover:bg-slate-700/50 text-slate-300 hover:text-white"
                 }`
               }
               onClick={() => setIsSidebarOpen(false)}

@@ -12,6 +12,7 @@ import DashMyGroup from "../Dashboard/DashMyGroup";
 import UpdateGroup from "../components/UpdateGroup";
 import NotFound from "../components/NotFound";
 import Dashboard from "../Dashboard/Dashboard";
+import Stats from "../Dashboard/State";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -82,7 +83,7 @@ export const router = createBrowserRouter([
       path: "/dashboard",
       element: (
         <PrivateRoute>
-          <MyGroup />
+          <Stats />
         </PrivateRoute>
       ),
     }
